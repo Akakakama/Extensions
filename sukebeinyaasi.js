@@ -2,7 +2,7 @@ import AbstractSource from './abstract.js'
 
 export default new class SukebeiNyaa extends AbstractSource {
   // Change this to match your actual API route
-  base = 'https://sukebei.nyaa.si/'
+  url = atob('aHR0cHM6Ly9zdWtlYmVpLm55YWEuc2kv')
 
   /** @type {import('./').SearchFunction} */
   async single({ titles, episode }) {
@@ -76,4 +76,5 @@ export default new class SukebeiNyaa extends AbstractSource {
     }
   }
 }()
+
 
