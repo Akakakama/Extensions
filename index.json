@@ -56,8 +56,8 @@
       "US"
     ],
     "icon": "https://nyaa.si/static/favicon.png",
-    "update": "gh:AKAMAHUB/extensions",
-    "code": "gh:AKAMAHUB/extensions/nyaasi"
+    "update": "gh:Akakakama/extensions",
+    "code": "gh:Akakakama/extensions/nyaasi"
   },
   {
     "name": "SukebeiNyaaSi",
@@ -71,8 +71,8 @@
       "US"
     ],
     "icon": "https://nyaa.si/static/favicon.png",
-    "update": "gh:AKAMAHUB/extensions",
-    "code": "gh:AKAMAHUB/extensions/sukebeinyaasi"
+    "update": "gh:Akakakama/extensions",
+    "code": "gh:Akakakama/extensions/sukebeinyaasi"
   },
 
 ]
