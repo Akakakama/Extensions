@@ -1,25 +1,26 @@
 import AbstractSource from './abstract.js'
 
 export default new class SukebeiNyaa extends AbstractSource {
-  // Change this to match your actual API route
-  url = atob('aHR0cHM6Ly9zdWtlYmVpLm55YWEuc2kv')
+  // API endpoint for JSON results
+  base = atob('aHR0cHM6Ly9ueWFhLmlzcy5vbmUvc3VrZWJlaT9xPQ==')
+  // decodes to: https://nyaa.iss.one/sukebei?q=
 
   /** @type {import('./').SearchFunction} */
   async single({ titles, episode }) {
     if (!titles?.length) return []
 
     const query = this.buildQuery(titles[0], episode)
-    const url = `${this.base}${encodeURIComponent(query)}`
+    const url = this.base + encodeURIComponent(query)
 
     const res = await fetch(url)
-    const data = await res.json()
+    if (!res.ok) return []
 
+    const data = await res.json()
     if (!Array.isArray(data)) return []
 
     return this.map(data)
   }
 
-  /** @type {import('./').SearchFunction} */
   batch = this.single
   movie = this.single
 
@@ -31,17 +32,18 @@ export default new class SukebeiNyaa extends AbstractSource {
 
   map(data) {
     return data.map(item => {
-      const hash = item.Magnet?.match(/btih:([a-fA-F0-9]+)/)?.[1] || ''
+      const magnet = item.magnet || ''
+      const hash = magnet.match(/btih:([a-fA-F0-9]+)/)?.[1] || ''
 
       return {
-        title: item.Name || '',
-        link: item.Magnet || '',
+        title: item.title ?? '',
+        link: magnet,
         hash,
-        seeders: parseInt(item.Seeders || '0'),
-        leechers: parseInt(item.Leechers || '0'),
-        downloads: parseInt(item.Downloads || '0'),
-        size: this.parseSize(item.Size),
-        date: new Date(item.DateUploaded),
+        seeders: Number(item.seeders ?? 0),
+        leechers: Number(item.leechers ?? 0),
+        downloads: Number(item.downloads ?? 0),
+        size: this.parseSize(item.size ?? ''),
+        date: new Date(item.date ?? Date.now()),
         verified: false,
         type: 'alt',
         accuracy: 'medium'
@@ -50,7 +52,7 @@ export default new class SukebeiNyaa extends AbstractSource {
   }
 
   parseSize(sizeStr) {
-    const match = sizeStr.match(/([\d.]+)\s*(KiB|MiB|GiB|KB|MB|GB)/i)
+    const match = String(sizeStr).match(/([\d.]+)\s*(KiB|MiB|GiB|KB|MB|GB)/i)
     if (!match) return 0
 
     const value = parseFloat(match[1])
@@ -76,5 +78,7 @@ export default new class SukebeiNyaa extends AbstractSource {
     }
   }
 }()
+
+
 
 
