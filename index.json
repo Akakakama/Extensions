@@ -7,12 +7,10 @@
     "accuracy": "high",
     "ratio": 0,
     "media": "sub",
-    "languages": [
-      "US"
-    ],
+    "languages": ["US"],
     "icon": "https://releases.moe/favicon.png",
     "update": "gh:hayase-app/extensions",
-    "code": "gh:hayase-app/extensions/seadex.js"
+    "code": "gh:hayase-app/extensions/seadex"
   },
   {
     "name": "AnimeTosho",
@@ -22,12 +20,10 @@
     "accuracy": "high",
     "ratio": 0,
     "media": "sub",
-    "languages": [
-      "US"
-    ],
+    "languages": ["US"],
     "icon": "https://animetosho.org/inc/favicon.ico",
     "update": "gh:hayase-app/extensions",
-    "code": "gh:hayase-app/extensions/animetosho.js"
+    "code": "gh:hayase-app/extensions/animetosho"
   },
   {
     "name": "AnimeTosho NZB",
@@ -37,12 +33,10 @@
     "accuracy": "high",
     "ratio": 0,
     "media": "sub",
-    "languages": [
-      "US"
-    ],
+    "languages": ["US"],
     "icon": "https://animetosho.org/inc/favicon.ico",
     "update": "gh:hayase-app/extensions",
-    "code": "gh:hayase-app/extensions/animetosho-nzb.js"
+    "code": "gh:hayase-app/extensions/animetosho-nzb"
   },
   {
     "name": "NyaaSi",
@@ -52,12 +46,10 @@
     "accuracy": "low",
     "ratio": 0,
     "media": "sub",
-    "languages": [
-      "US"
-    ],
+    "languages": ["US"],
     "icon": "https://nyaa.si/static/favicon.png",
     "update": "gh:Akakakama/extensions",
-    "code": "gh:Akakakama/extensions/nyaasi.js"
+    "code": "gh:Akakakama/extensions/nyaasi"
   },
   {
     "name": "SukebeiNyaaSi",
@@ -67,12 +59,9 @@
     "accuracy": "low",
     "ratio": 0,
     "media": "sub",
-    "languages": [
-      "US"
-    ],
+    "languages": ["US"],
     "icon": "https://nyaa.si/static/favicon.png",
     "update": "gh:Akakakama/extensions",
-    "code": "gh:Akakakama/extensions/sukebeinyaasi.js"
+    "code": "gh:Akakakama/extensions/sukebeinyaasi"
   }
-
 ]
